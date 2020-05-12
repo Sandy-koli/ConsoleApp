@@ -1,10 +1,15 @@
+
+def gv
+
 pipeline {
    agent any
    
    stages {
       stage('init') {
-         steps {
-            echo 'Initialising Phase'
+         steps {            
+            scripts{
+               gv = load "script.groovy"
+            }
          }
       }
       stage('Compile') {
@@ -15,7 +20,9 @@ pipeline {
       stage('Build') {
 
          steps {
-            echo 'Build Phase'
+            scripts {
+               gv.buildApp
+            }
          }
       }
       stage('Run') {
@@ -24,13 +31,15 @@ pipeline {
          }
       }
       stage('Unit') {
-          when {
-              expression {
-                  env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
-              }
-          }
+         //  when {
+         //      expression {
+         //          env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
+         //      }
+         //  }
          steps {
-            echo 'Unit Test Phase'
+            scripts {
+               gv.UnitTestApp()
+            }
          }
       }
       stage('Integration') {
