@@ -44,7 +44,7 @@ pipeline {
             
             withCredentials
             (
-               [usernamePassword(credentials: 'cred', usernameVariable: USER, passwordVariable: PWD)]
+               [usernamePassword(credentialsId: 'cred', usernameVariable: USER, passwordVariable: PWD)]
             )
             {
                echo "User Name set is ${USER}"
