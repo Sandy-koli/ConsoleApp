@@ -42,10 +42,10 @@ pipeline {
          steps {
             echo 'Deployment Phase'
             
-            withCredentials ([usernamePassword(credentials: 'cred', usernameVariable: USER, passwordVariable: PWD)])
+            withCredentials([usernamePassword(credentials: 'cred', usernameVariable: USER)])
             {
                echo "User Name set is ${USER}"
-               echo "Password set is ${PWD}"
+               //echo "Password set is ${PWD}"
             }
          }
       }
