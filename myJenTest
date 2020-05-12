@@ -1,0 +1,41 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('init') {
+         steps {
+            echo 'Initialising Phase'
+         }
+      }
+      stage('Compile') {
+         steps {
+            echo 'Compile Phase'
+         }
+      }
+      stage('Build') {
+         steps {
+            echo 'Build Phase'
+         }
+      }
+      stage('Run') {
+         steps {
+            echo 'Run Phase'
+         }
+      }
+      stage('Unit') {
+         steps {
+            echo 'Unit Test Phase'
+         }
+      }
+      stage('Integration') {
+         steps {
+            echo 'Integration Phase'
+         }
+      }
+      stage('Deploy') {
+         steps {
+            echo 'Deployment Phase'
+         }
+      }
+   }
+}
