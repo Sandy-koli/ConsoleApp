@@ -1,6 +1,6 @@
 
-def gv = load "script.groovy"
-
+def gv = load "./script.groovy"
+checkout scm
 pipeline {
    agent any
    
