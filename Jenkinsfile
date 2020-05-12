@@ -1,7 +1,5 @@
 
 def gv
-checkout scm
-gv = load "./script.groovy"
 pipeline {
    agent any
    
@@ -20,6 +18,8 @@ pipeline {
 
          steps {
             scripts {
+               checkout scm
+               gv = load "./script.groovy"
                gv.buildApp()
             }
          }
