@@ -1,13 +1,10 @@
 pipeline {
    agent any
-   environment {
-       SERVER_CREDENTIALS = credentials('cred')
-   }
+   
    stages {
       stage('init') {
          steps {
             echo 'Initialising Phase'
-            echo "Credentials are ${SERVER_CREDENTIALS}"
          }
       }
       stage('Compile') {
